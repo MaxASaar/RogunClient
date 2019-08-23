@@ -1,6 +1,6 @@
 
 {
-    "name": "Town",
+    "name": "game",
     "id": "4716d511-81db-4a87-ad2d-4fcda94028a6",
     "creationCodeFile": "",
     "inheritCode": false,
@@ -14,7 +14,8 @@
         "c89a68b8-da68-4c73-ae9e-e2795afe7712",
         "eedb32ef-3574-48af-9e59-409fa4836067",
         "8344adbc-c0cc-4f58-82eb-f8dd42a3bb09",
-        "1167fd27-ad68-4a07-8428-2a59c20366da"
+        "1167fd27-ad68-4a07-8428-2a59c20366da",
+        "c513638a-67f6-46ab-8e68-a0a230d8f02d"
     ],
     "IsDnD": false,
     "layers": [
@@ -32,7 +33,7 @@
             "inheritSubLayers": false,
             "inheritVisibility": false,
             "instances": [
-
+{"name": "inst_40467A96","id": "c513638a-67f6-46ab-8e68-a0a230d8f02d","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"imageIndex": 0,"imageSpeed": 1,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_40467A96","objId": "62e65379-1e0d-4662-aad3-f1cd3e9ab8b9","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.1","x": 672,"y": 576}
             ],
             "layers": [
 
