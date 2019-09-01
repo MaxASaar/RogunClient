@@ -2,7 +2,7 @@
 // You can write your code in this editor
 acceleration = 1;
 max_speed = 5;
-movespeed = 2;
+movespeed = 5;
 current_velocity_x = 0;
 current_velocity_y = 0;
 
