@@ -2,6 +2,10 @@
 #macro MESSAGE_JOIN 2
 #macro MESSAGE_LEAVE 4
 #macro MESSAGE_GETID 5
-
+#macro MESSAGE_SHOOT 6
+#macro MESSAGE_HIT 7
+#macro MESSAGE_MISS 8
 
 #macro UPDATE_SPEED 3
+
+#macro SHOOT_RANGE 600

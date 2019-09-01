@@ -49,6 +49,34 @@ while(true){
 			with(tempObject)
 			instance_destroy();
 		break;
+		
+		case MESSAGE_HIT:
+		
+			var clientshootid = buffer_read(buffer, buffer_u16);
+			var clientshoot = client_get_object(clientshootid);
+			var clientshotid = buffer_read(buffer, buffer_u16);
+			var clientshot = client_get_object(clientshotid);
+			var shootdirection = buffer_read(buffer, buffer_u16);
+			var shootlength = buffer_read(buffer, buffer_u16);
+		
+			var hit_x = clamp(clientshoot.x + lengthdir_x(shootlength, shootdirection), clientshot.x, clientshot.x+16);
+			var hit_y = clamp(clientshoot.y + lengthdir_x(shootlength, shootdirection), clientshot.y, clientshot.y+16);				
+		
+			create_shootline(clientshoot.x, clientshoot.y, hit_x, hit_y);
+		
+		break;
+		case MESSAGE_MISS:
+				
+			var clientshootid = buffer_read(buffer, buffer_u16);
+			var clientshoot = client_get_object(clientshootid);
+			var shootdirection = buffer_read(buffer, buffer_u16);
+			var shootlength = buffer_read(buffer, buffer_u16);
+		
+			create_shootline(clientshoot.x, clientshoot.y,
+					clientshoot.x + lengthdir_x(shootlength, shootdirection),
+					clientshoot.y + lengthdir_y(shootlength, shootdirection),
+			);
+		break;
 	}
 	
 	// Failsafe

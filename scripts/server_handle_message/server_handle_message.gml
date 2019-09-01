@@ -14,6 +14,9 @@ while(true){
 			var xx = buffer_read(buffer, buffer_u16);
 			var yy = buffer_read(buffer, buffer_u16);
 			
+			clientObject.x = xx;
+			clientObject.y = yy;
+			
 			buffer_seek(send_buffer, buffer_seek_start, 0);
 			buffer_write(send_buffer, buffer_u8, MESSAGE_MOVE);
 			buffer_write(send_buffer, buffer_u16, client_id_current);
@@ -55,6 +58,12 @@ while(true){
 			}
 				
 		break;
+		
+		case MESSAGE_SHOOT:
+		
+			var shootdirection = buffer_read(buffer, buffer_u16);
+			
+			server_handle_shoot(shootdirection, clientObject);
 
 	}
 	
