@@ -6,6 +6,6 @@
 #macro MESSAGE_HIT 7
 #macro MESSAGE_MISS 8
 
-#macro UPDATE_SPEED 3
+#macro UPDATE_SPEED 2
 
-#macro SHOOT_RANGE 600
+#macro SHOOT_RANGE 1000

@@ -13,6 +13,7 @@ while(true){
 			// Player is moving, read in x and y 
 			var xx = buffer_read(buffer, buffer_u16);
 			var yy = buffer_read(buffer, buffer_u16);
+			var dir = buffer_read(buffer, buffer_u16);
 			
 			clientObject.x = xx;
 			clientObject.y = yy;
@@ -22,7 +23,9 @@ while(true){
 			buffer_write(send_buffer, buffer_u16, client_id_current);
 			buffer_write(send_buffer, buffer_u16, xx);
 			buffer_write(send_buffer, buffer_u16, yy);
+			buffer_write(send_buffer, buffer_u16, dir);
 			
+			// Sends the movement information to all other clients connected to the server
 			with(obj_server_client){
 				if(client_id != client_id_current){
 					network_send_raw(self.socket_id, other.send_buffer, buffer_tell(other.send_buffer));

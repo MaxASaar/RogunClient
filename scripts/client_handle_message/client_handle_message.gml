@@ -15,6 +15,7 @@ while(true){
 			var client = buffer_read(buffer, buffer_u16);
 			var xx = buffer_read(buffer, buffer_u16);
 			var yy = buffer_read(buffer, buffer_u16);
+			var dir = buffer_read(buffer, buffer_u16);
 			
 			clientObject = client_get_object(client);
 			
@@ -24,11 +25,10 @@ while(true){
 			clientObject.tox = xx;
 			clientObject.toy = yy;
 			
-			with(obj_server_client){
-				if(client_id != client_id_current){
-					network_send_raw(self.socket_id, other.send_buffer, buffer_tell(other.send_buffer));
-				}
-			}
+			
+			// Set the players gun angle to the received dir
+			clientObject.gun_angle = dir;
+			
 			
 		break;
 		
@@ -61,6 +61,8 @@ while(true){
 		
 			var hit_x = clamp(clientshoot.x + lengthdir_x(shootlength, shootdirection), clientshot.x, clientshot.x+16);
 			var hit_y = clamp(clientshoot.y + lengthdir_x(shootlength, shootdirection), clientshot.y, clientshot.y+16);				
+		
+			clientshot.hp = buffer_read(buffer, buffer_u8);
 		
 			create_shootline(clientshoot.x, clientshoot.y, hit_x, hit_y);
 		

@@ -33,12 +33,16 @@ with(tempObject){
 }
 
 if(hit){ // If we hit an object
+	
+	obj.hp -= 1;
+	
 	buffer_seek(send_buffer, buffer_seek_start, 0);
 	buffer_write(send_buffer, buffer_u8, MESSAGE_HIT);
 	buffer_write(send_buffer, buffer_u16, tempObject.client_id);
 	buffer_write(send_buffer, buffer_u16, obj.client_id);
 	buffer_write(send_buffer, buffer_u16, shootdirection);
 	buffer_write(send_buffer, buffer_u16, prog);
+	buffer_write(send_buffer, buffer_u8, obj.hp); 
 	with(obj_server_client){
 		network_send_raw(self.socket_id, other.send_buffer, buffer_tell(other.send_buffer));
 	}

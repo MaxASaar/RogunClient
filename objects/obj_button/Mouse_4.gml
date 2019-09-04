@@ -7,4 +7,5 @@ if(txt == "create server"){
 	
 	instance_create_layer(0,0, "Instances", obj_client);
 	instance_create_layer(100,100,"Instances", obj_playerr);
+	instance_create_layer(0,0,"Instances", obj_camera);
 }
